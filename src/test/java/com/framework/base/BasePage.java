@@ -13,8 +13,7 @@ public class BasePage {
 	
 	// This class will have browser related common functions and configuration related details
 	
-	private static WebDriver driver = null;
-	
+	private static WebDriver driver = null;	
 	
 	//method to launch the browser
 	@BeforeMethod(alwaysRun=true)

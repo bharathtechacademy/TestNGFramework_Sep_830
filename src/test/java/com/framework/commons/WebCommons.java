@@ -130,4 +130,21 @@ public class WebCommons {
 		}
 	}
 	
+	// get element text
+	public String getElementText(WebElement element) {
+		return element.getText();
+	}
+
+	// get title of the window
+	public String getTitle() {
+		return driver.getTitle();
+	}
+	
+	// check element is displayed 
+	public boolean isElementDisplayed(WebElement element) {
+		return element.isDisplayed();
+	}
+	
+	
+	
 }
