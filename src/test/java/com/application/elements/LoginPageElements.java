@@ -3,7 +3,9 @@ package com.application.elements;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class LoginPageElements {
+import com.framework.commons.WebCommons;
+
+public class LoginPageElements extends WebCommons{
 	
 	@FindBy(xpath="//span[text()='LOG IN TO YOUR ACCOUNT']")
 	public WebElement loginPageHeader;

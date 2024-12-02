@@ -3,6 +3,7 @@ package com.framework.commons;
 import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
+import java.util.Properties;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.Alert;
@@ -18,11 +19,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import com.framework.base.BasePage;
+import com.framework.reports.Reports;
+import com.framework.utilities.ReadProp;
 
 public class WebCommons {
 	
 	// This class will have common functions related to selenium web actions
 	public WebDriver driver = new BasePage().getDriver();
+	public Properties prop = ReadProp.readData("Config.properties");
 	
 	
 	//method to launch the application
@@ -144,6 +148,19 @@ public class WebCommons {
 	public boolean isElementDisplayed(WebElement element) {
 		return element.isDisplayed();
 	}
+	
+	// print /log events in the report
+	public void log(String status, String message) {
+		if (status.equalsIgnoreCase("pass"))
+			Reports.logger.pass(message);
+		else if (status.equalsIgnoreCase("fail"))
+			Reports.logger.fail(message);
+		else if (status.equalsIgnoreCase("info"))
+			Reports.logger.info(message);
+		else if (status.equalsIgnoreCase("warning"))
+			Reports.logger.warning(message);
+	}
+	
 	
 	
 	
