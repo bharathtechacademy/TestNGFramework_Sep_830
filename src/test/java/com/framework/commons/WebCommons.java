@@ -2,7 +2,9 @@ package com.framework.commons;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
+import java.util.Calendar;
 import java.util.Properties;
 
 import org.apache.commons.io.FileUtils;
@@ -161,7 +163,12 @@ public class WebCommons {
 			Reports.logger.warning(message);
 	}
 	
-	
+	// generate unique id
+	public String uniqueId(String format) {
+		SimpleDateFormat sdf = new SimpleDateFormat(format);
+		String uniqueId = sdf.format(Calendar.getInstance().getTime());
+		return uniqueId;
+	}
 	
 	
 }

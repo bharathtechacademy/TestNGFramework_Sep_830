@@ -13,17 +13,20 @@ public class LoginPageSteps extends LoginPageElements{
 	}
 	
 	public void launchApplication() {		
+		PageFactory.initElements(driver,this);
 		launchApplication(prop.getProperty("url"));
-		Assert.assertEquals(getTitle(), prop.getProperty("url"));
+		Assert.assertEquals(getTitle(), prop.getProperty("title"));
 		log("pass","Application is launched successfully");
 	}
 	
-	public void verifyLoginHeader(String expHeader) {
-		Assert.assertEquals(getElementText(loginPageHeader), expHeader);
+	public void verifyLoginHeader() {
+		waitForElement(loginPageHeader, 30);
+		Assert.assertEquals(getElementText(loginPageHeader), prop.get("loginHeader"));
 		log("pass","Application Login Header is displayed as expected");
 	}
 	
 	public void enterCredentials(String username, String password) {
+		waitForElement(businessEmailTxtb, 30);
 		enterText(businessEmailTxtb, username);
 		enterText(passwordTxtb, password);
 		log("info","Credentials are entered successfully");
@@ -34,5 +37,10 @@ public class LoginPageSteps extends LoginPageElements{
 		log("info","Clicked on the Login Button");
 	}
 	
+	public void clickOnSignUpLink() {
+		waitForElement(signUpLink, 30);
+		jsClick(signUpLink);
+		log("info","Clicked on the SignUp Link");
+	}	
 
 }

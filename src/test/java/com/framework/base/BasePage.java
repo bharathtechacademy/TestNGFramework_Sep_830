@@ -9,7 +9,9 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 
-public class BasePage {
+import com.framework.reports.Reports;
+
+public class BasePage extends Reports {
 	
 	// This class will have browser related common functions and configuration related details
 	
